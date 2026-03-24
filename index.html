@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Trailas Monterrey — Fabricamos foodtrucks y trailers personalizados listos para generar ingresos. Cotiza hoy y recibe atención inmediata." />
+    <title>Trailas Monterrey | Foodtrucks que Generan Ingresos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: "#D4AF37",
+                        "gold-dark": "#b8941e",
+                        "gold-light": "#f0d060",
+                        dark: "#0d0d0d",
+                        "dark2": "#1a1a1a",
+                    },
+                    fontFamily: { sans: ["Inter", "sans-serif"] },
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d0d0d;
+            color: #f1f1f1;
+        }
+
+        .gold-btn {
+            background: linear-gradient(135deg, #D4AF37 0%, #f0d060 50%, #D4AF37 100%);
+            color: #000;
+            font-weight: 900;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: transform .15s, box-shadow .15s;
+            box-shadow: 0 4px 24px 0 rgba(212, 175, 55, .35);
+        }
+
+        .gold-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 32px 0 rgba(212, 175, 55, .55);
+        }
+
+        .wa-btn {
+            background: #25D366;
+            color: #fff;
+            font-weight: 900;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            transition: transform .15s, box-shadow .15s;
+            box-shadow: 0 4px 20px 0 rgba(37, 211, 102, .3);
+        }
+
+        .wa-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 32px 0 rgba(37, 211, 102, .5);
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, .4) 60%, rgba(212, 175, 55, .1) 100%),
+                url('Fondo.png') center/cover no-repeat;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+        }
+
+        .card-gold {
+            border: 2px solid #D4AF37;
+        }
+
+        .badge {
+            background: #D4AF37;
+            color: #000;
+            font-size: .65rem;
+            font-weight: 900;
+            letter-spacing: .15em;
+            padding: 3px 12px;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 4vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -.02em;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .7s, transform .7s;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        input,
+        select,
+        textarea {
+            background: #111 !important;
+            border: 1px solid #333 !important;
+            color: #fff !important;
+            border-radius: 8px !important;
+            padding: 12px 16px !important;
+            width: 100%;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #D4AF37 !important;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, .2) !important;
+        }
+
+        input::placeholder {
+            color: #555 !important;
+        }
+
+        .step-num {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, .12);
+            border: 2px solid rgba(212, 175, 55, .3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #D4AF37;
+        }
+
+        .trust-bar {
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+            background: #111;
+        }
+
+        /* Mobile adjustments */
+        @media(max-width:640px) {
+            .hero-bg {
+                min-height: 100svh;
+            }
+
+            .pkg-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== STICKY NAV ===== -->
+    <header class="sticky top-0 z-50 border-b border-white/5"
+        style="background:rgba(13,13,13,.92);backdrop-filter:blur(12px);">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="#inicio" class="flex items-center gap-2 group">
+                <span class="material-symbols-outlined text-gold text-3xl">local_shipping</span>
+                <span class="text-lg font-black uppercase tracking-tighter">Trailas <span
+                        class="text-gold">MTY</span></span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <a href="#precios" class="hover:text-gold transition-colors">Precios</a>
+                <a href="#proceso" class="hover:text-gold transition-colors">Proceso</a>
+                <a href="#proyectos" class="hover:text-gold transition-colors">Proyectos</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <!--  <a href="https://wa.me/528110000000?text=Hola,%20quiero%20agendar%20una%20cita" class="gold-btn px-5 py-2 rounded-lg text-xs hidden sm:block">Hacer una cita</a> -->
+                <a href="https://wa.me/528110000000?text=Hola,%20quiero%20cotizar%20un%20foodtruck" target="_blank"
+                    class="wa-btn px-5 py-2 rounded-lg text-xs flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.539 2.016 2.126-.54c.957.574 1.968.903 3.16.903 3.181 0 5.768-2.587 5.768-5.766 0-3.181-2.587-5.766-5.766-5.766zm3.332 7.746c-.144.405-.841.742-1.212.793-.339.046-.779.066-1.258-.154-2.146-.98-3.524-3.111-3.633-3.256-.107-.145-.884-1.177-.884-2.253 0-1.077.56-1.607.76-1.821.2-.214.441-.268.587-.268h.423c.125 0 .28.001.405.289.155.358.529 1.288.574 1.383.044.094.075.203.012.333-.062.129-.112.215-.221.341-.11.127-.23.284-.328.38-.11.11-.223.23-.095.45.127.22.565.934 1.212 1.511.834.743 1.537.973 1.756 1.084.22.11.349.094.478-.055.129-.148.556-.647.705-.869.148-.222.298-.186.501-.11.203.076 1.288.607 1.511.718.223.111.37.166.425.26.055.093.055.541-.09 1.014z" />
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero-bg relative flex items-center min-h-[92svh]" id="inicio">
+        <div class="max-w-6xl mx-auto px-4 w-full pt-10 pb-20 flex flex-wrap gap-12 items-center text-left">
+
+            <!-- Left: headline + CTAs -->
+            <div class="max-w-3xl w-full md:w-auto">
+                <span class="badge mb-5 inline-block">+50 Foodtrucks Entregados</span>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight mb-5">
+                    Lanza tu negocio de comida con un foodtruck<br />
+                    <span class="text-gold">listo para generar ingresos</span>
+                </h1>
+                <p class="text-gray-300 text-base sm:text-lg mb-8 max-w-lg leading-relaxed">
+                    Fabricamos foodtrucks 100% personalizados desde Monterrey. Diseño, fabricación y entrega a todo
+                    México y EE.UU. <strong class="text-white">Sin cuotas ocultas. Con garantía de fábrica.</strong>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <a href="https://wa.me/528110000000?text=Hola,%20quiero%20cotizar%20un%20foodtruck" target="_blank"
+                        class="wa-btn px-7 py-4 rounded-xl text-sm text-center flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.539 2.016 2.126-.54c.957.574 1.968.903 3.16.903 3.181 0 5.768-2.587 5.768-5.766 0-3.181-2.587-5.766-5.766-5.766zm3.332 7.746c-.144.405-.841.742-1.212.793-.339.046-.779.066-1.258-.154-2.146-.98-3.524-3.111-3.633-3.256-.107-.145-.884-1.177-.884-2.253 0-1.077.56-1.607.76-1.821.2-.214.441-.268.587-.268h.423c.125 0 .28.001.405.289.155.358.529 1.288.574 1.383.044.094.075.203.012.333-.062.129-.112.215-.221.341-.11.127-.23.284-.328.38-.11.11-.223.23-.095.45.127.22.565.934 1.212 1.511.834.743 1.537.973 1.756 1.084.22.11.349.094.478-.055.129-.148.556-.647.705-.869.148-.222.298-.186.501-.11.203.076 1.288.607 1.511.718.223.111.37.166.425.26.055.093.055.541-.09 1.014z" />
+                        </svg>
+                        Cotizar por WhatsApp
+                    </a>
+                </div>
+                <!-- Trust signals -->
+                <div class="flex flex-wrap gap-4 text-xs text-white font-semibold">
+                    <span class="flex items-center gap-1.5"><span class="text-gold">✓</span> Sin compromiso</span>
+                    <span class="flex items-center gap-1.5"><span class="text-gold">✓</span> Respuesta en menos de 1
+                        hora</span>
+                    <span class="flex items-center gap-1.5"><span class="text-gold">✓</span> Garantía de fábrica</span>
+                </div>
+            </div>
+
+            <!-- Right: quick form 
+            <div id="cita" class="card card-gold p-7 rounded-2xl shadow-2xl">
+                <h2 class="text-xl font-black mb-1">Agenda tu cita gratis</h2>
+                <p class="text-gray-400 text-sm mb-5">Sin compromiso. Te contactamos hoy mismo.</p>
+                <form id="lead-form" class="space-y-4" onsubmit="handleForm(event)">
+                    <div>
+                        <label
+                            class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">Nombre</label>
+                        <input type="text" id="f-name" placeholder="Ej. Juan Pérez" required />
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">WhatsApp /
+                            Teléfono</label>
+                        <input type="tel" id="f-phone" placeholder="Ej. 811 000 0000" required />
+                    </div>
+                    <div>
+                        <label
+                            class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">Ciudad</label>
+                        <input type="text" id="f-city" placeholder="Ej. Monterrey, TX, CDMX..." required />
+                    </div>
+                    <button type="submit" class="gold-btn w-full py-4 rounded-xl text-sm">
+                        Quiero mi cita gratis ahora
+                    </button>
+                    <p class="text-center text-xs text-gray-500">🔒 Tus datos están seguros. Sin spam.</p>
+                </form>
+                <div id="form-success" class="hidden text-center py-6">
+                    <div class="text-4xl mb-3">🎉</div>
+                    <p class="text-gold font-black text-lg">¡Recibido!</p>
+                    <p class="text-gray-300 text-sm mt-1">Te contactamos en menos de 1 hora por WhatsApp.</p>
+                </div>
+            </div>
+        </div>-->
+    </section>
+
+    <!-- ===== TRUST BAR ===== -->
+    <div class="trust-bar py-4">
+        <div
+            class="max-w-6xl mx-auto px-4 flex flex-wrap justify-center gap-6 md:gap-10 text-xs font-bold text-gray-400 uppercase tracking-widest">
+            <span class="flex items-center gap-2"><span class="text-gold text-base">🏭</span> Taller propio en
+                Monterrey</span>
+            <span class="flex items-center gap-2"><span class="text-gold text-base">🚚</span> Entrega a México y
+                EE.UU.</span>
+            <span class="flex items-center gap-2"><span class="text-gold text-base">⭐</span> +50 proyectos
+                entregados</span>
+            <span class="flex items-center gap-2"><span class="text-gold text-base">🛡️</span> Garantía de
+                fábrica</span>
+        </div>
+    </div>
+
+    <!-- ===== PRICING ===== -->
+    <section class="py-20 px-4" id="precios">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <span class="badge mb-4 inline-block">Precios Transparentes</span>
+                <h2 class="section-title mb-3">Elige tu foodtruck</h2>
+                <p class="text-gray-400 text-base max-w-xl mx-auto">Todos incluyen diseño personalizado, fabricación
+                    profesional y entrega. Sin sorpresas.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 items-start pkg-grid">
+
+                <!-- Básico -->
+                <div class="card p-7 flex flex-col h-full reveal">
+                    <h3 class="text-lg font-black uppercase tracking-wide mb-1 text-white">Starter</h3>
+                    <p class="text-gray-500 text-xs mb-4">Para emprendedores que arrancan</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black text-white">$14,000</span>
+                        <span class="text-gray-500 text-sm ml-1">USD</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-300 flex-grow mb-8">
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Foodtruck 3m × 2m</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Chasis acero reforzado</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Forro aluminio exterior</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Enganche de seguridad</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Pintura base incluida</li>
+                    </ul>
+                    <a href="https://wa.me/528110000000?text=Quiero%20cotizar%20el%20paquete%20Starter" target="_blank"
+                        class="wa-btn py-3.5 rounded-xl text-xs text-center block">
+                        Cotizar Starter por WhatsApp
+                    </a>
+                </div>
+
+                <!-- Pro (popular) -->
+                <div class="card card-gold p-7 flex flex-col h-full relative reveal md:scale-105 shadow-2xl"
+                    style="box-shadow:0 0 40px rgba(212,175,55,.2)">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                        <span class="badge px-5 py-1.5 text-[11px]">⭐ Más Popular</span>
+                    </div>
+                    <h3 class="text-lg font-black uppercase tracking-wide mb-1 text-gold">Pro Business</h3>
+                    <p class="text-gray-400 text-xs mb-4">Para negocios que quieren escalar rápido</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black text-gold">$40,000</span>
+                        <span class="text-gray-500 text-sm ml-1">USD</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-300 flex-grow mb-8">
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Foodtruck 5m × 2.4m</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Cocina industrial acero inox</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Sistema doble eje</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Extracción de aire industrial
+                        </li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Branding vinílico completo</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Instalación eléctrica premium
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/528110000000?text=Quiero%20cotizar%20el%20paquete%20Pro%20Business"
+                        target="_blank" class="gold-btn py-3.5 rounded-xl text-xs text-center block">
+                        Cotizar Pro por WhatsApp
+                    </a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="card p-7 flex flex-col h-full reveal">
+                    <h3 class="text-lg font-black uppercase tracking-wide mb-1 text-white">Enterprise</h3>
+                    <p class="text-gray-500 text-xs mb-4">Para marcas y operaciones a gran escala</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black text-white">$89,000</span>
+                        <span class="text-gray-500 text-sm ml-1">USD</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-300 flex-grow mb-8">
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Diseño arquitectónico especial
+                        </li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Equipamiento de importación</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Planta de luz integrada</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Aire acondicionado central</li>
+                        <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Proyecto llave en mano</li>
+                    </ul>
+                    <a href="https://wa.me/528110000000?text=Quiero%20cotizar%20el%20paquete%20Enterprise"
+                        target="_blank" class="wa-btn py-3.5 rounded-xl text-xs text-center block">
+                        Cotizar Enterprise por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-center text-xs text-gray-500 mt-6">¿No encuentras lo que buscas? <a
+                    href="https://wa.me/528110000000" target="_blank" class="text-gold underline font-bold">Cotiza un
+                    proyecto a medida →</a></p>
+        </div>
+    </section>
+
+    <!-- ===== VISITA LA FÁBRICA ===== -->
+    <section class="py-16 px-4 bg-dark2 border-y border-white/5">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            <div class="flex-2 reveal text-left">
+                <span class="text-gold text-xs font-black uppercase tracking-[0.2em] mb-4 block">Confianza Total</span>
+                <h3 class="text-3xl font-black text-white mb-4 leading-tight">Visítanos en nuestra planta en Monterrey
+                </h3>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    ¿Quieres ver la calidad de nuestros materiales antes de comprar? Te invitamos a nuestra planta de
+                    fabricación. Conoce a nuestro equipo, mira los procesos de soldadura, acabado e instalación
+                    eléctrica, y elige tu tráiler con total seguridad.
+                </p>
+                <div class="flex items-center gap-4">
+                    <span class="material-symbols-outlined text-gold">location_on</span>
+                    <p class="text-sm font-bold text-gray-300">Monterrey, Nuevo León, México</p>
+                </div>
+            </div>
+            <div class="flex-1 reveal flex justify-center md:justify-end w-full">
+                <a href="https://wa.me/528110000000?text=Hola,%20quiero%20agendar%20una%20visita%20a%20la%20f%C3%A1brica%20en%20Monterrey"
+                    class="gold-btn px-10 py-5 rounded-xl text-xs font-bold uppercase tracking-widest inline-block whitespace-nowrap">
+                    Agendar mi visita
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESO ===== -->
+    <section class="py-20 px-4" id="proceso" style="background:#111;">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <span class="badge mb-4 inline-block">Simple y Transparente</span>
+                <h2 class="section-title mb-3">De la idea a la calle en 4 pasos</h2>
+                <p class="text-gray-400 text-base">Sin complicaciones. Sin sorpresas. Así trabajamos.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center text-center reveal">
+                    <div class="step-num mb-4">01</div>
+                    <h4 class="font-black text-white uppercase tracking-wide text-sm mb-2">Consulta</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Nos cuentas tu concepto y necesidades. Asesoría
+                        gratuita sin compromiso.</p>
+                </div>
+                <div class="flex flex-col items-center text-center reveal">
+                    <div class="step-num mb-4">02</div>
+                    <h4 class="font-black text-white uppercase tracking-wide text-sm mb-2">Diseño</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Creamos planos y render 3D de tu foodtruck.
+                        Apruebas antes de fabricar.</p>
+                </div>
+                <div class="flex flex-col items-center text-center reveal">
+                    <div class="step-num mb-4">03</div>
+                    <h4 class="font-black text-white uppercase tracking-wide text-sm mb-2">Fabricación</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Construimos con materiales industriales en nuestro
+                        taller de Monterrey.</p>
+                </div>
+                <div class="flex flex-col items-center text-center reveal">
+                    <div class="step-num mb-4">04</div>
+                    <h4 class="font-black text-white uppercase tracking-wide text-sm mb-2">Entrega</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Enviamos a tu ciudad. Listo para enganchar y
+                        empezar a vender desde el día 1.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROYECTOS ===== -->
+    <section class="py-20 px-4" id="proyectos">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-10 reveal">
+                <span class="badge mb-4 inline-block">Prueba Social Real</span>
+                <h2 class="section-title mb-2">Foodtrucks que ya están generando ingresos</h2>
+                <p class="text-gray-400 text-sm">Proyectos entregados a emprendedores reales en México y EE.UU.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Proy 1 -->
+                <div
+                    class="reveal group flex flex-col bg-dark2 rounded-xl border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] hover:border-gold/30">
+                    <div class="aspect-video overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCoUXHnQjhApPPA30CvHI6z9vjRycUj9HLMPBJeu8oybtY8mo0_Cykbz1EV0AkmdsRFI7emqNNRUZUuf3jjXZ70SGaDCSg4b2pgEwR4y-qoIgAbi9oMw1x8tc4z9ytgSQmHMA-fg_P7UvtExilH-Rzr26Av5sJlQnFVGABAXv9wSC2-AIyayeq9u_J1igVMmynTgsswPVYmCI3bIBjmgamgZwTwvY30W-ILF8ZQN2glc6257I9hypXM2bw3LQ5bPQk4MHucDtIFBE"
+                            alt="Foodtruck Gourmet CDMX" />
+                    </div>
+                    <div class="p-4 border-t border-white/5">
+                        <h4 class="text-white font-bold text-sm mb-1 group-hover:text-gold transition-colors">Foodtruck
+                            Gourmet</h4>
+                        <p class="text-gray-500 text-[10px] font-black uppercase tracking-wider">Entregado en CDMX</p>
+                    </div>
+                </div>
+
+                <!-- Proy 2 -->
+                <div
+                    class="reveal group flex flex-col bg-dark2 rounded-xl border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] hover:border-gold/30">
+                    <div class="aspect-video overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB33wEuL6YsQyv6TmpciZCM80UIrBMctIsIsn1rjGnYq0jvGWwYYSgppAPZKWn1t-OeaRBR3-QiF2rMwBsjHj6yhky7bVqJPLpNJui5WUn0onvLnfacUSYAnpofIdeYsN3w4bcorquFuqgmM_d-P7Qu8I_LXvuKu-fzRoDTFL1SDuXI5KFuEuIxU5AP7xJwOgOxuXCjd7C6kH4Oh6sn6QTirKbgjWYMbPFq3tMFHbxRsOlbE5x2vYlTrotRdyHvRgKaOhf8xvweSBw"
+                            alt="Cafetería Móvil Monterrey" />
+                    </div>
+                    <div class="p-4 border-t border-white/5">
+                        <h4 class="text-white font-bold text-sm mb-1 group-hover:text-gold transition-colors">Cafetería
+                            Móvil Premium</h4>
+                        <p class="text-gray-500 text-[10px] font-black uppercase tracking-wider">Entregado en Monterrey
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Proy 3 -->
+                <div
+                    class="reveal group flex flex-col bg-dark2 rounded-xl border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] hover:border-gold/30">
+                    <div class="aspect-video overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOjZZWGo5ZJS4_4Xr3yv2lW5-AK7id-reLGeV53ZCR_ddaFQc4bY_yBBWEs-S4PqVDTSisVMp5CQkWCpQLU3LqAx_AFWUNk8R23OGevoCWs-nk6rb7XzyBO8pdEMAC0tM7I70LJ2GwD2l45-I7oh0Zk7YWhH0JVzLWebuXQ8dHImj9fu_rpxB7BWTE8-swHMKZEwLEvAyxX39GatkS5OPqg55sgCC4wyztCOQi-pweF8liYfnWWElvpam2oTFUTjo4jv48368SvkA"
+                            alt="Foodtruck Tacos Texas" />
+                    </div>
+                    <div class="p-4 border-t border-white/5">
+                        <h4 class="text-white font-bold text-sm mb-1 group-hover:text-gold transition-colors">Foodtruck
+                            Tacos Texas</h4>
+                        <p class="text-gray-500 text-[10px] font-black uppercase tracking-wider">Entregado en Houston,
+                            TX</p>
+                    </div>
+                </div>
+
+                <!-- Proy 4 -->
+                <div
+                    class="reveal group flex flex-col bg-dark2 rounded-xl border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] hover:border-gold/30">
+                    <div class="aspect-video overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAADo_8SXaDKYzkTMM9XFjrTlCCK_YDhY-pogl-L1CHoXi9SRlZUttn3J0lmoonVps6q9euUINAzedSAvFEmDgZ9B0sljXrVDiX9zv2cRjWfwVv7XcwwqVXinr_-yUKxkk8J1H1-iVXh_GBdsK5f7O5uVTS76zoGSqGZx7ZtEw26_PGhSPpGrBMhAPRjkWmtpWMc4RlPg-tXN10FOiUzgLEzmMqlH2grgDjSWsv8lXVjdPCY6TijVpZ_uvZ-FE27sIiwooVi7xMSu8"
+                            alt="Traila Pastelería Guadalajara" />
+                    </div>
+                    <div class="p-4 border-t border-white/5">
+                        <h4 class="text-white font-bold text-sm mb-1 group-hover:text-gold transition-colors">Traila
+                            Pastelería</h4>
+                        <p class="text-gray-500 text-[10px] font-black uppercase tracking-wider">Entregado en
+                            Guadalajara</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== UBICACIÓN / CONFIANZA ===== -->
+    <section class="py-20 px-4" style="background:#111;">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <span class="badge mb-4 inline-block">Taller Físico Real</span>
+                <h2 class="section-title mb-4">Fabricamos en Monterrey,<br /><span class="text-gold">Entregamos a todo
+                        México y EE.UU.</span></h2>
+                <p class="text-gray-400 text-base mb-6 leading-relaxed">Somos una empresa real con taller físico en
+                    Monterrey, N.L. Puedes visitarnos, ver el proceso y conocer tu trailer antes de pagar el saldo
+                    final.</p>
+                <ul class="space-y-3 text-sm text-gray-300">
+                    <li class="flex items-center gap-3"><span class="text-gold font-black">✓</span> Más de 50 proyectos
+                        entregados</li>
+                    <li class="flex items-center gap-3"><span class="text-gold font-black">✓</span> Transporte
+                        especializado con seguro</li>
+                    <li class="flex items-center gap-3"><span class="text-gold font-black">✓</span> Garantía directa de
+                        fábrica</li>
+                    <li class="flex items-center gap-3"><span class="text-gold font-black">✓</span> Atención en español
+                        e inglés</li>
+                    <li class="flex items-center gap-3"><span class="text-gold font-black">✓</span> Financiamiento
+                        disponible</li>
+                </ul>
+            </div>
+            <div class="reveal rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.7!2d-100.3161!3d25.6866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQxJzEyLjAiTiAxMDDCsDE4JzU4LjAiVw!5e0!3m2!1ses!2smx!4v1"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Ubicación Trailas Monterrey">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CIERRE / CTA FINAL ===== -->
+    <section class="py-24 px-4 border-t border-white/5 bg-[#0d0d0d] overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-3xl md:text-5xl font-black mb-6 tracking-tight leading-tight">
+                ¿Listo para materializar <br class="hidden md:block" />
+                <span class="text-gold">tu visión de negocio?</span>
+            </h2>
+            <p class="text-gray-400 text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                Únete a la nueva generación de emprendedores que han escalado sus marcas con equipos de grado
+                industrial fabricados en Monterrey. Recibe asesoría técnica personalizada desde el primer contacto.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                <a href="https://wa.me/528110000000?text=Hola,%20quiero%20solicitar%20una%20asesor%C3%ADa%20t%C3%A9cnica%20para%20un%20proyecto"
+                    class="gold-btn px-10 py-4 rounded-xl text-xs font-bold uppercase tracking-widest w-full sm:w-auto">
+                    Solicitar asesoría técnica
+                </a>
+                <a href="https://wa.me/528110000000?text=Hola,%20quiero%20cotizar%20un%20proyecto" target="_blank"
+                    class="wa-btn px-10 py-4 rounded-xl text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 w-full sm:w-auto">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.539 2.016 2.126-.54c.957.574 1.968.903 3.16.903 3.181 0 5.768-2.587 5.768-5.766 0-3.181-2.587-5.766-5.766-5.766zm3.332 7.746c-.144.405-.841.742-1.212.793-.339.046-.779.066-1.258-.154-2.146-.98-3.524-3.111-3.633-3.256-.107-.145-.884-1.177-.884-2.253 0-1.077.56-1.607.76-1.821.2-.214.441-.268.587-.268h.423c.125 0 .28.001.405.289.155.358.529 1.288.574 1.383.044.094.075.203.012.333-.062.129-.112.215-.221.341-.11.127-.23.284-.328.38-.11.11-.223.23-.095.45.127.22.565.934 1.212 1.511.834.743 1.537.973 1.756 1.084.22.11.349.094.478-.055.129-.148.556-.647.705-.869.148-.222.298-.186.501-.11.203.076 1.288.607 1.511.718.223.111.37.166.425.26.055.093.055.541-.09 1.014z" />
+                    </svg>
+                    Cotización Prioritaria
+                </a>
+            </div>
+            <p class="text-gray-500 text-[10px] uppercase tracking-[0.2em] font-bold mt-10">Atención oficial • Lunes a
+                Viernes 9:00 - 18:00</p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-white/5 py-10 px-4" style="background:#0d0d0d;">
+        <div
+            class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-gold text-2xl">local_shipping</span>
+                <span class="font-black uppercase tracking-tighter text-white text-base">Trailas <span
+                        class="text-gold">MTY</span></span>
+            </div>
+            <p class="font-semibold">© 2025 Trailas Monterrey. Fabricación industrial de foodtrucks en Monterrey, N.L.
+            </p>
+            <div class="flex gap-6 font-bold uppercase tracking-widest">
+                <a href="#" class="hover:text-gold transition-colors">Privacidad</a>
+                <a href="#" class="hover:text-gold transition-colors">Garantía</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== FLOATING WHATSAPP ===== -->
+    <a href="https://wa.me/528110000000?text=Hola,%20quiero%20cotizar%20un%20foodtruck" target="_blank"
+        class="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-green-500 text-white px-4 py-3 rounded-full shadow-2xl font-bold text-sm hover:scale-105 transition-transform"
+        style="box-shadow:0 6px 30px rgba(37,211,102,.5)">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.539 2.016 2.126-.54c.957.574 1.968.903 3.16.903 3.181 0 5.768-2.587 5.768-5.766 0-3.181-2.587-5.766-5.766-5.766zm3.332 7.746c-.144.405-.841.742-1.212.793-.339.046-.779.066-1.258-.154-2.146-.98-3.524-3.111-3.633-3.256-.107-.145-.884-1.177-.884-2.253 0-1.077.56-1.607.76-1.821.2-.214.441-.268.587-.268h.423c.125 0 .28.001.405.289.155.358.529 1.288.574 1.383.044.094.075.203.012.333-.062.129-.112.215-.221.341-.11.127-.23.284-.328.38-.11.11-.223.23-.095.45.127.22.565.934 1.212 1.511.834.743 1.537.973 1.756 1.084.22.11.349.094.478-.055.129-.148.556-.647.705-.869.148-.222.298-.186.501-.11.203.076 1.288.607 1.511.718.223.111.37.166.425.26.055.093.055.541-.09 1.014z" />
+        </svg>
+        Cotizar gratis
+    </a>
+
+    <script>
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => io.observe(el));
+
+        // Form handler
+        function handleForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('f-name').value;
+            const phone = document.getElementById('f-phone').value;
+            const city = document.getElementById('f-city').value;
+            const msg = encodeURIComponent(`Hola, agenda una cita:\nNombre: ${name}\nTeléfono: ${phone}\nCiudad: ${city}`);
+            window.open(`https://wa.me/528110000000?text=${msg}`, '_blank');
+            document.getElementById('lead-form').classList.add('hidden');
+            document.getElementById('form-success').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
